@@ -27,3 +27,5 @@ Route::post('/new-survey-form/{url}', [SurveyController::class, 'submitform'])->
 });
 
 Route::get('/thanks-for-survey', [ThanksController::class, 'showthanks'])->name('thanks');
+Route::get('/sorry-for-inconvenient', [ThanksController::class, 'showsorry'])->name('sorry');
+

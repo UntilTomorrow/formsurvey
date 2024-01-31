@@ -29,8 +29,6 @@
             <a class="step-trigger" href="#stepContent6"></a>
             <a class="step-trigger" href="#stepContent7"></a>
             <a class="step-trigger" href="#stepContent8"></a>
-
-
         </div>
         <div class="step-contents">
             <div class="step-content active" id="stepContent1">

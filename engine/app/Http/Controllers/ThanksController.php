@@ -14,4 +14,10 @@ class ThanksController extends Controller
         return view('thanks.thanks', compact('pageTitle'));
     }
 
+    public function showsorry()
+    {
+        $pageTitle = "Mohon maaf";
+        return view('sorry.sorry', compact('pageTitle'));
+    }
+
 }
