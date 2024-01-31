@@ -36,7 +36,7 @@
                 <p>Apakah Anda sudah dihubungi oleh Care Officer Fingerspot untuk kebutuhan [isian kebutuhan dari lead CRM] ?</p>
                 <div class="form-buttons-w text-right">
                     <a class="btn btn-primary step-trigger-btn" href="#stepContent2">Sudah dihubungi</a>
-                    <a class="btn btn-danger step-trigger-btn" href="#" onclick="redirectToRoute('{{ route('dashboard') }}')">Belum</a>
+                    <a class="btn btn-danger step-trigger-btn" href="#" onclick="redirectToRoute('{{ route('sorry') }}')">Belum</a>
                 </div>
             </div>
             <div class="step-content" id="stepContent2">
