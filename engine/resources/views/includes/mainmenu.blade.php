@@ -27,7 +27,7 @@
               <span>Menu</span>
             </li>
             <li>
-              <a href="/form">
+              <a href="{{ route('dashboard') }}">
                 <div class="icon-w">
                   <div class="os-icon os-icon-layout"></div>
                 </div>
