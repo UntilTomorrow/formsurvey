@@ -30,7 +30,9 @@
             <br>
             • Kirim Pesan email ke <a href="mailto:info@fingerspot.com">info@fingerspot.com</a>
             <br>
+            <br>
             Senin - Jumat : 09.00 - 17.00 WIB
+            <br>
             Sabtu : 09.00 - 14.30 WIB
         </p>
         </div>
