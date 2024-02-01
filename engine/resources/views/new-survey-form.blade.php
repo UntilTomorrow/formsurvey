@@ -22,7 +22,7 @@
     <div class="steps-w">
         <div class="step-triggers">
             <a class="step-trigger active" href="#stepContent1"></a>
-            <a class="step-trigger" href="#stepContent2"></a>
+
             <a class="step-trigger" href="#stepContent3"></a>
             <a class="step-trigger" href="#stepContent4"></a>
             <a class="step-trigger" href="#stepContent5"></a>
@@ -35,22 +35,18 @@
                 <p>Terima kasih atas ketersediaan waktu untuk memberikan feedback mengenai pelayanan Fingerspot.</p>
                 <p>Apakah Anda sudah dihubungi oleh Care Officer Fingerspot untuk kebutuhan [isian kebutuhan dari lead CRM] ?</p>
                 <div class="form-buttons-w text-right">
-                    <a class="btn btn-primary step-trigger-btn" href="#stepContent2">Sudah dihubungi</a>
+                    <a class="btn btn-primary step-trigger-btn" href="#stepContent3">Sudah dihubungi</a>
                     <a class="btn btn-danger step-trigger-btn" href="#" onclick="redirectToRoute('{{ route('sorry') }}')">Belum</a>
                 </div>
             </div>
-            <div class="step-content" id="stepContent2">
-                <p>Kami ingin mengetahui interaksi terakhir Anda dengan Care Officer Fingerspot, silahkan memberikan feedback untuk kami.</p>
-                <div class="form-buttons-w text-right">
-                    <a class="btn btn-primary step-trigger-btn" href="#stepContent3">Next</a>
-                </div>
-            </div>
+
             <div class="step-content" id="stepContent3">
             <div class="form-group row">
+                <p>Kami ingin mengetahui interaksi terakhir Anda dengan Care Officer Fingerspot, silahkan memberikan feedback untuk kami.</p>
                 <p>Sikap Care Officer dalam hal keramahan.</p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input checked="" class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak ramah</label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang ramah</label>
@@ -77,7 +73,7 @@
                 <p>Care Officer dapat memahami kebutuhan Anda. </p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input checked="" class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak mudah paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak mudah paham</label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang paham</label>
@@ -104,7 +100,7 @@
                 <p>Kecepatan pelayanan Care Officer. </p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input checked="" class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak cepat</label>
+                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak cepat</label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang cepat</label>
@@ -131,7 +127,7 @@
                 <p>Penjelasan informasi & pemberian solusi Care Officer.</p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input checked="" class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak jelas & tidak solutif</label>
+                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak jelas & tidak solutif</label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang jelas & kurang solutif</label>
