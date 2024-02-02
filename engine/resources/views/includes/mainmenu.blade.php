@@ -34,5 +34,21 @@
                 <span>Dashboard</span>
               </a>
             </li>
+            <li>
+              <a href="{{ route('listsurvey') }}">
+                <div class="icon-w">
+                  <div class="os-icon os-icon-mail-18"></div>
+                </div>
+                <span>Send Survey</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('dashboard') }}">
+                <div class="icon-w">
+                  <div class="os-icon os-icon-coins-4"></div>
+                </div>
+                <span>Input Survey</span>
+              </a>
+            </li>
           </ul>
         </div>

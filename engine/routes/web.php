@@ -5,11 +5,17 @@ use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\SendSurveyController;
 
 
 Route::middleware(['web'])->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'showdashboard'])->name('dashboard');
     Route::post('/dashboard', [Dashboard::class, 'create'])->name('create');
+});
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/listsurvey', [SendSurveyController::class, 'showlistsurvey'])->name('listsurvey');
+    Route::post('/listsurvey/search', [SendSurveyController::class, 'showlistsurvey'])->name('search.listsurvey');
 });
 
 
