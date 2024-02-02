@@ -43,7 +43,7 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('dashboard') }}">
+              <a href="{{ route('input') }}">
                 <div class="icon-w">
                   <div class="os-icon os-icon-coins-4"></div>
                 </div>

@@ -9,9 +9,6 @@
   @endif
   </head>
 
-
-
-
 <body class="menu-position-side menu-side-left full-screen">
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.0/dist/umd/uuid.min.js"></script>
 

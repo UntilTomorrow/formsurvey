@@ -6,6 +6,7 @@ use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\SendSurveyController;
+use App\Http\Controllers\InputSurveyController;
 
 
 Route::middleware(['web'])->group(function () {
@@ -18,7 +19,9 @@ Route::middleware(['web'])->group(function () {
     Route::post('/listsurvey/search', [SendSurveyController::class, 'showlistsurvey'])->name('search.listsurvey');
 });
 
-
+Route::middleware(['web'])->group(function () {
+    Route::get('/input', [InputSurveyController::class, 'showforminput'])->name('input');
+});
 
 Route::middleware(['web'])->group(function () {
 Route::get('/login', [LoginController::class, 'showformlogin'])->name('login');
