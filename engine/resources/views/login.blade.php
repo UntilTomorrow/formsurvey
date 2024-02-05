@@ -28,7 +28,7 @@
         <button class="btn btn-primary">Login</button>
         <div class="form-check-inline">
             <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> <!-- Penambahan atribut name="remember" di atas -->
+                <input class="form-check-input" type="checkbox" name="remember"> 
                 Remember Me
             </label>
         </div>

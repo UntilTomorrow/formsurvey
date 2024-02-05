@@ -2,11 +2,16 @@
 <html>
   <head>
   @include('includes.header')
-  @if(session('success'))
-     <div class="alert alert-success">
-        {{ session('success') }}
+    @if(session('success'))
+       <div class="alert alert-success">
+          {{ session('success') }}
        </div>
-  @endif
+    @endif
+    @if(session('error'))
+       <div class="alert alert-danger">
+          {{ session('error') }}
+       </div>
+    @endif
   </head>
 
 <body class="menu-position-side menu-side-left full-screen">
@@ -69,8 +74,8 @@
                                   <input class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Telepon" type="text" name="telepon">
                                   <button class="btn btn-primary" type="submit">Simpan</button>
                                   <input type="hidden" name="url" id="url" value="">
-                              </form>
-                     </div>
+                            </form>
+            </div>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="element-wrapper">
@@ -205,5 +210,9 @@
 </script>
 
 @include('includes.js')
+
+<script>
+        document.cookie = "my_cookie=nilai_cookie; samesite=None; secure";
+</script>
   </body>
 </html>

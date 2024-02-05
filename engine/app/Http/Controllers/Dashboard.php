@@ -16,28 +16,34 @@ class Dashboard extends Controller
     }
 
 	public function create(Request $request)
-	{
-		$request->validate([
-			'id_leads' => 'required',
-			'perusahaan' => 'required',
-			'nama' => 'required',
-			'telepon' => 'required',
-		]);
-	
-		$data = [
-			'id_leads' => $request->input('id_leads'),
-			'perusahaan' => $request->input('perusahaan'),
-			'nama' => $request->input('nama'),
-			'telepon' => $request->input('telepon'),
-			'url' => $request->input('url'),
+{
+    try {
+        $request->validate([
+            'id_leads' => 'required',
+            'perusahaan' => 'required',
+            'nama' => 'required',
+            'telepon' => 'required',
+        ]);
 
-		];
-		if ($request->filled('kesan_pelayanan')) {
-			$data['kesan_pelayanan'] = $request->input('kesan_pelayanan');
-		}
-		Survey::create($data);
-		
+        $data = [
+            'id_leads' => $request->input('id_leads'),
+            'perusahaan' => $request->input('perusahaan'),
+            'nama' => $request->input('nama'),
+            'telepon' => $request->input('telepon'),
+            'url' => $request->input('url'),
+        ];
+
+        if ($request->filled('kebutuhan')) {
+            $data['kebutuhan'] = $request->input('kebutuhan');
+        }
+
+        Survey::create($data);
+
         return redirect()->route('dashboard')->with('success', 'Survey Berhasil Ditambahkan.');
-	}
+    } catch (\Exception $e) {
+        return redirect()->back()->withInput()->with('error', 'Gagal menambahkan survey. Silakan coba lagi.');
+    }
+}
+
 
 }

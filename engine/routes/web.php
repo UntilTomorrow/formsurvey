@@ -21,6 +21,8 @@ Route::middleware(['web'])->group(function () {
 
 Route::middleware(['web'])->group(function () {
     Route::get('/input', [InputSurveyController::class, 'showforminput'])->name('input');
+    Route::post('/input', [InputSurveyController::class, 'inputform'])->name('inputform');
+
 });
 
 Route::middleware(['web'])->group(function () {

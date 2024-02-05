@@ -2,11 +2,16 @@
 <html>
   <head>
   @include('includes.header')
-  @if(session('success'))
-     <div class="alert alert-success">
-        {{ session('success') }}
+    @if(session('success'))
+       <div class="alert alert-success">
+          {{ session('success') }}
        </div>
-  @endif
+    @endif
+    @if(session('error'))
+       <div class="alert alert-danger">
+          {{ session('error') }}
+       </div>
+    @endif
   </head>
 <body class="menu-position-side menu-side-left full-screen">
 <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.0/dist/umd/uuid.min.js"></script>
@@ -50,7 +55,8 @@
       Inputkan Data Pelanggan
       </h6>
       <div class="element-box">
-        <form>
+        <form method="POST" action="{{ route('inputform') }}">
+            @csrf
           <h5 class="form-header">
             Form Survey Fingerspot
           </h5>
@@ -58,40 +64,46 @@
             Discharge best employed your phase each the of shine. Be met even reason consider logbook redesigns. Never a turned interfaces among asking
           </div>
           <div class="row">
-          <div class="col-sm-6">
-          <div class="form-group">              
-                    <label for=""> ID Leads</label><input class="form-control" placeholder="ID Lead" type="id">
-                </div>
-            </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for=""> Nama Pelanggan</label><input class="form-control" placeholder="Nama Pelanggan" type="name">
+                <label for=""> ID Leads</label>
+                <input class="form-control" placeholder="ID Lead" type="id" name="id_leads">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="">No Telepon</label><input class="form-control" placeholder="Nomor" type="text">
+                <label for=""> Nama Pelanggan</label>
+                <input class="form-control" placeholder="Nama Pelanggan" type="name" name="nama">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="">Email Address</label><input class="form-control" placeholder="email" type="email">
+                <label for="">No Telepon</label>
+                <input class="form-control" placeholder="Nomor" type="text" name="telepon">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="">Contact By</label><input class="form-control" placeholder="ContactBy" type="text">
+                <label for="">Email Address</label>
+                <input class="form-control" placeholder="email" type="email" name="email">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="">Contact By</label>
+                <input class="form-control" placeholder="ContactBy" type="text" name="contactby">
               </div>
             </div>
           </div>
           <fieldset class="form-group">
             <legend><span>Kebutuhan</span></legend>
             <div class="form-group">
-              <textarea class="form-control" rows="3"></textarea>
-            </div>
+            <textarea class="form-control" rows="3" name="kebutuhan"></textarea>            
+          </div>
           </fieldset>
           <div class="form-buttons-w">
             <button class="btn btn-primary" type="submit"> Submit</button>
+            <input type="hidden" name="url" id="url" value="">
           </div>
         </form>
       </div>
@@ -102,3 +114,4 @@
 @include('includes.js')
   </body>
 </html>
+
