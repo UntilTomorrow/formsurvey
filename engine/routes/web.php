@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::middleware(['web'])->group(function () {
 Route::get('/new-survey-form/{url}', [SurveyController::class, 'formsurvey'])->name('new-survey-form');
-Route::post('/new-survey-form/{url}', [SurveyController::class, 'submitform'])->name('submit-survey');
+Route::post('/new-survey-form/{url}', [SurveyController::class, 'submitform'])->name('submitform');
 
 });
 

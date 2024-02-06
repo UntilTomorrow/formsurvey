@@ -15,8 +15,9 @@
         </tr>
       </table><img alt="" src="{{ asset('assets/img/email-header-img.jpg') }}" style="max-width: 100%; height: auto;">
       <div class="element-box">
-      <form>
-    <h2 style="margin: 0; font-size: 24px; font-weight: bold;">
+      <form method="POST" action="{{ route('submitform', ['url' => $url]) }}">
+      @csrf
+        <h2 style="margin: 0; font-size: 24px; font-weight: bold;">
         Form Feedback Pelayanan Fingerspot
     </h2>
     <div class="steps-w">
@@ -46,19 +47,19 @@
                 <p>Sikap Care Officer dalam hal keramahan.</p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="sikap_keramahan" type="radio" value="Tidak ramah">Tidak ramah</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="sikap_keramahan" type="radio" value="Kurang ramah">Kurang ramah</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option3">Cukup ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="sikap_keramahan" type="radio" value="Cukup ramah">Cukup ramah</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="sikap_keramahan" type="radio" value="Ramah">Ramah</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Sangat ramah</label>
+                        <label class="form-check-label"><input class="form-check-input" name="sikap_keramahan" type="radio" value="Sangat ramah">Sangat ramah</label>
                     </div>
                     </div>
             </div>           
@@ -73,19 +74,19 @@
                 <p>Care Officer dapat memahami kebutuhan Anda. </p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak mudah paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="pemahaman_kebutuhan" type="radio" value="Tidak mudah paham">Tidak mudah paham</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="pemahaman_kebutuhan" type="radio" value="Kurang paham">Kurang paham</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option3">Cukup paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="pemahaman_kebutuhan" type="radio" value="Cukup paham">Cukup paham</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="pemahaman_kebutuhan" type="radio" value="Paham">Paham</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Sangat paham</label>
+                        <label class="form-check-label"><input class="form-check-input" name="pemahaman_kebutuhan" type="radio" value="Sangat paham">Sangat paham</label>
                     </div>
                 </div>
             </div>
@@ -100,19 +101,19 @@
                 <p>Kecepatan pelayanan Care Officer. </p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak cepat</label>
+                        <label class="form-check-label"><input class="form-check-input" name="kecepatan_pelayanan" type="radio" value="Tidak cepat">Tidak cepat</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang cepat</label>
+                        <label class="form-check-label"><input class="form-check-input" name="kecepatan_pelayanan" type="radio" value="Kurang cepat">Kurang cepat</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option3">Cukup cepat </label>
+                        <label class="form-check-label"><input class="form-check-input" name="kecepatan_pelayanan" type="radio" value="Cukup cepat">Cukup cepat </label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Cepat</label>
+                        <label class="form-check-label"><input class="form-check-input" name="kecepatan_pelayanan" type="radio" value="Cepat">Cepat</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Sangat cepat</label>
+                        <label class="form-check-label"><input class="form-check-input" name="kecepatan_pelayanan" type="radio" value="Sangat cepat">Sangat cepat</label>
                     </div>
                 </div>
             </div>
@@ -127,19 +128,19 @@
                 <p>Penjelasan informasi & pemberian solusi Care Officer.</p>
                 <div class="col-sm-8">
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option1">Tidak jelas & tidak solutif</label>
+                        <label class="form-check-label"><input class="form-check-input" name="penjelasan" type="radio" value="Tidak Jelas & tidak solutif">Tidak jelas & tidak solutif</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option2">Kurang jelas & kurang solutif</label>
+                        <label class="form-check-label"><input class="form-check-input" name="penjelasan" type="radio" value="Kurang jelas & kurang solutif">Kurang jelas & kurang solutif</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option3">Cukup jelas & cukup solutif</label>
+                        <label class="form-check-label"><input class="form-check-input" name="penjelasan" type="radio" value="Cukup jelas & cukup solutif">Cukup jelas & cukup solutif</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Jelas</label>
+                        <label class="form-check-label"><input class="form-check-input" name="penjelasan" type="radio" value="Jelas">Jelas</label>
                     </div>
                     <div class="form-check">
-                        <label class="form-check-label"><input class="form-check-input" name="optionsRadios" type="radio" value="option4">Sangat jelas</label>
+                        <label class="form-check-label"><input class="form-check-input" name="penjelasan" type="radio" value="Sangat jelas">Sangat jelas</label>
                     </div>
                 </div>
             </div>
@@ -155,26 +156,26 @@
                 <div class="col-sm-8">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="optionsRadios[]" type="checkbox" value="option1">Sosial media
+                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Sosial media">Sosial media
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="optionsRadios[]" type="checkbox" value="option2">Rekan / kenalan
+                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Rekan">Rekan / kenalan
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="optionsRadios[]" type="checkbox" value="option3">Media Cetak (flyer, spanduk, xbanner, dll)
+                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Media cetak">Media Cetak (flyer, spanduk, xbanner, dll)
                         </label>                    
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="optionsRadios[]" type="checkbox" value="option4" id="lainnyaCheckbox">Lainnya
+                            <input class="form-check-input" name="sumber_info" type="checkbox" value="" id="lainnyaCheckbox">Lainnya
                         </label>
                     </div>
                     <div class="form-group" id="lainnyaOption" style="display: none;">
-                        <input type="text" class="form-control" id="lainnyaInput" name="lainnyaInput" placeholder="">
+                        <input type="text" class="form-control" id="lainnyaInput" name="sumber_info" placeholder="">
                     </div>
                 </div>
             </div> 
@@ -184,13 +185,13 @@
             </div>  
             <div class="step-content" id="stepContent8">
                 <div class="form-group">
-                    <label> Saran & kritik </label><textarea class="form-control" rows="3"></textarea>
+                    <label> Saran & kritik </label><textarea class="form-control" name="saran_kritik" rows="3"></textarea>
                 </div>
                 <div class="form-buttons-w text-right">
-                    <a class="btn btn-danger step-trigger-btn" href="#" onclick="redirectToRoute('{{ route('thanks') }}')">Submit</a>
+                <button type="submit">Submit</button>
                 </div> 
             </div>
-    </div>      
+    </div>  
 </div>
 </form>
     </div><div style="background-color: #F5F5F5; padding: 40px; text-align: center;">

@@ -14,9 +14,9 @@ class SendSurveyController extends Controller
         
         if (!empty($search)) {
             $survey = Survey::where('id_leads', 'like', '%' . $search . '%')
-            ->orWhere('perusahaan', 'like', '%' . $search . '%')
             ->orWhere('nama', 'like', '%' . $search . '%')
             ->orWhere('telepon', 'like', '%' . $search . '%')
+            ->orWhere('email', 'like', '%' . $search . '%')
             ->get();
         } 
         $pageTitle = "List Survey";
