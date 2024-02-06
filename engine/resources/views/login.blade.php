@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   @include('includes.header')
+    @if(session('success'))
+       <div class="alert alert-success">
+          {{ session('success') }}
+       </div>
+    @endif
+    @if(session('error'))
+       <div class="alert alert-danger">
+          {{ session('error') }}
+       </div>
+    @endif
   </head>
   <body class="auth-wrapper">
     <div class="all-wrapper menu-side with-pattern">

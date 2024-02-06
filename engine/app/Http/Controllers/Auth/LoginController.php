@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -16,24 +15,30 @@ class LoginController extends Controller
         return view('login', compact('pageTitle'));
     }
 
-    public function authLogin(Request $request)
+    public function authlogin(Request $request)
     {
         $request->validate([
             'username' => 'required',
-            'Pass' => 'required',
+            'password' => 'required',
         ]);
 
-        $username = $request->input('username');
-        $password = $request->input('password');
+        $credentials = $request->only('username', 'password');
 
-        $user = DB::table('users')->where('username', $username)->first();
-
-        if ($user && password_verify($password, $user->password)) {
-            $notify[] = ['Login', 'Berhasil Login '];
-            return redirect()->route('dashboard')->withNotify($notify);
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard')->with('success', 'Berhasil login.');
         } else {
-            $notify[] = ['Login', 'Auth Tidak Sesuai '];
-            return redirect()->route('login')->withInput()->withNotify($notify);
+            return redirect()->back()->withInput()->with('error', 'Kombinasi username dan password salah.');
         }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('login')->with('success', 'Anda telah berhasil logout.');
+
     }
 }
