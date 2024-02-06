@@ -2,6 +2,11 @@
 <html>
   <head>
   @include('includes.header')
+  @if(session('error'))
+       <div class="alert alert-danger">
+          {{ session('error') }}
+       </div>
+    @endif
   </head>
   <body style="background-color: #222533; padding: 20px; font-family: font-size: 14px; line-height: 1.43; font-family: &quot;Helvetica Neue&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif;">
     <div style="max-width: 600px; margin: 10px auto 20px; font-size: 12px; color: #A5A5A5; text-align: center;">
@@ -156,26 +161,26 @@
                 <div class="col-sm-8">
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Sosial media">Sosial media
+                            <input class="form-check-input" name="sumber_info[]" type="checkbox" value="Sosial media">Sosial media
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Rekan">Rekan / kenalan
+                            <input class="form-check-input" name="sumber_info[]" type="checkbox" value="Rekan">Rekan / kenalan
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="sumber_info" type="checkbox" value="Media cetak">Media Cetak (flyer, spanduk, xbanner, dll)
+                            <input class="form-check-input" name="sumber_info[]" type="checkbox" value="Media cetak">Media Cetak (flyer, spanduk, xbanner, dll)
                         </label>                    
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" name="sumber_info" type="checkbox" value="" id="lainnyaCheckbox">Lainnya
+                            <input class="form-check-input" name="sumber_info[]" type="checkbox" value="lainnya" id="lainnyaCheckbox">Lainnya
                         </label>
                     </div>
                     <div class="form-group" id="lainnyaOption" style="display: none;">
-                        <input type="text" class="form-control" id="lainnyaInput" name="sumber_info" placeholder="">
+                        <input type="text" class="form-control" id="lainnyaInput" name="sumber_info[]" placeholder="">
                     </div>
                 </div>
             </div> 
@@ -189,6 +194,7 @@
                 </div>
                 <div class="form-buttons-w text-right">
                 <button type="submit">Submit</button>
+                <input type="hidden" name="survey_url" value="{{ $url }}">
                 </div> 
             </div>
     </div>  
