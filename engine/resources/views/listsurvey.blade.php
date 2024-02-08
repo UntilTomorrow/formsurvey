@@ -19,8 +19,6 @@
       const idElement = document.getElementById('url');
       if (idElement) {
         idElement.value = url;
-    }else {
-      console.error(err);
     }
   });
 </script>
@@ -80,7 +78,6 @@
                             <tr class="survey-row">
                               <th>No</th>
                               <th>ID leads</th>
-                              <th>Perusahaan</th>
                               <th>Nama Pelanggan</th>
                               <th>Telepon</th>
                               <th>Status</th>
@@ -94,50 +91,69 @@
                                         <tr class="survey-row">
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->id_leads }}</td>
-                                            <td>{{ $data->perusahaan }}</td>
                                             <td>{{ $data->nama }}</td>
                                             <td>{{ $data->telepon }}</td>
                                             <td class="status-cell" style="text-align: center;">
-                                                @if(empty($data->kesan_pelayanan))
+                                                @if(empty($data->feedback))
                                                     <span class="status-pill red" data-title="Cancelled" data-toggle="tooltip"></span>
                                                 @else
                                                     <span class="status-pill green" data-title="Complete" data-toggle="tooltip"></span>
                                                 @endif
                                             </td>
                                             <td style="text-align: center;">
+                                            @if($data->feedback)
+                                            @else
                                                 <a href="#" class="btn btn-primary" onclick="copySurveyLink('{{ route('new-survey-form', ['url' => $data->url]) }}')">Copy</a>
+                                            @endif     
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal{{ $data->id }}">View</button>                                          
-                                                <a href="https://wa.me/{{ $data->telepon }}" class="btn btn-primary" target="_blank">Send</a>
                                             </td>
+                                            <div class="modal fade" id="viewModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                              <div class="modal-content text-center">
+                                                  <div class="modal-header">
+                                                      <h5 class="modal-title" id="viewModalLabel">View Data</h5>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                      <form method="POST" action="">
+                                                          @csrf
+                                                          @method('PUT')
+
+                                                          <div class="form-group">
+                                                              <label for="idLeads">Id</label>
+                                                              <input type="text" class="form-control" id="idLeads" name="idLeads" value="{{ $data->id }}" >
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <label for="idLeads">Id Leads</label>
+                                                              <input type="text" class="form-control" id="idLeads" name="idLeads" value="{{ $data->id_leads }}" >
+                                                          </div>
+
+                                                          <div class="form-group">
+                                                              <label for="perusahaan">Nama</label>
+                                                              <input type="text" class="form-control" id="nama" name="nama" value="{{ $data->nama }}" >
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <label for="perusahaan">Kebutuhan</label>
+                                                              <input type="text" class="form-control" id="nama" name="nama" value="{{ $data->kebutuhan }}" >
+                                                          </div>
+                                                          <div class="form-group">
+                                                              <label for="nama">feedback customer</label>
+                                                              <input type="text" class="form-control" id="nama" name="feedback" value="{{ $data->feedback ? $data->feedback->sikap_keramahan . ', ' . $data->feedback->pemahaman_kebutuhan . ', ' . $data->feedback->kecepatan_pelayanan . ', ' . $data->feedback->penjelasan . ', ' . $data->feedback->sumber_info . ', ' . $data->feedback->saran_kritik : '' }}">
+                                                          </div>
+                                                      </form>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
                                         </tr>
                                         @endforeach
                                     @else
                                         <tr class="survey-row">
                                             <td colspan="7" class="text-center">Tidak ada hasil pencarian.</td>
                                         </tr>
-                                    @endif
-                                @else
-                                    @foreach($survey as $data)
-                                    <tr class="survey-row">
-                                        <td>{{ $data->id }}</td>
-                                        <td>{{ $data->id_leads }}</td>
-                                        <td>{{ $data->perusahaan }}</td>
-                                        <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->telepon }}</td>
-                                        <td class="status-cell" style="text-align: center;">
-                                            @if(empty($data->kesan_pelayanan))
-                                                <span class="status-pill red" data-title="Cancelled" data-toggle="tooltip"></span>
-                                            @else
-                                                <span class="status-pill green" data-title="Complete" data-toggle="tooltip"></span>
-                                            @endif
-                                        </td>
-                                        <td style="text-align: center;">
-                                            <a href="#" class="btn btn-primary" onclick="copySurveyLink('{{ route('new-survey-form', ['url' => $data->url]) }}')">Copy</a>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal{{ $data->id }}">View</button>                                          
-                                            <a href="https://wa.me/{{ $data->telepon }}" class="btn btn-primary" target="_blank">Send</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                    @endif                           
                                 @endif
                             </tbody>
                         </table>
@@ -150,16 +166,7 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#search").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $(".survey-row").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-            });
-        });
-    });
-</script>
+
 
 <script>
     function copySurveyLink(url) {

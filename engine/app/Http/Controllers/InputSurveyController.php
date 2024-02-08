@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Feedback;
 use App\Models\Survey;
 
 class InputSurveyController extends Controller
@@ -11,6 +12,7 @@ class InputSurveyController extends Controller
     {
         $pageTitle = "Input Data Survey";
         return view('formsurvey', compact('pageTitle'));
+        $data->feedback = Feedback::where('survey_id', $data->id)->exists();
     }
 
     public function inputform(Request $request)

@@ -209,10 +209,9 @@
     }
 </script>
 
-@include('includes.js')
 
 <script>
-        document.cookie = "my_cookie=nilai_cookie; samesite=None; secure";
+@include('includes.js')
 </script>
   </body>
 </html>

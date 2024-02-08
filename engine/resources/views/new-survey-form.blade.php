@@ -37,15 +37,20 @@
             <a class="step-trigger" href="#stepContent8"></a>
         </div>
         <div class="step-contents">
+        @if($survey->feedback)
+        <div class="step-content active" id="stepContent1">
+                <p>Terima kasih atas ketersediaan waktu untuk memberikan feedback mengenai pelayanan Fingerspot.</p>
+            </div>
+        @else
             <div class="step-content active" id="stepContent1">
                 <p>Terima kasih atas ketersediaan waktu untuk memberikan feedback mengenai pelayanan Fingerspot.</p>
-                <p>Apakah Anda sudah dihubungi oleh Care Officer Fingerspot untuk kebutuhan [isian kebutuhan dari lead CRM] ?</p>
+                <p>Apakah Anda sudah dihubungi oleh Care Officer Fingerspot untuk kebutuhan <strong>{{ $survey->kebutuhan }}</strong>?</p>
                 <div class="form-buttons-w text-right">
                     <a class="btn btn-primary step-trigger-btn" href="#stepContent3">Sudah dihubungi</a>
                     <a class="btn btn-danger step-trigger-btn" href="#" onclick="redirectToRoute('{{ route('sorry') }}')">Belum</a>
                 </div>
             </div>
-
+        @endif
             <div class="step-content" id="stepContent3">
             <div class="form-group row">
                 <p>Kami ingin mengetahui interaksi terakhir Anda dengan Care Officer Fingerspot, silahkan memberikan feedback untuk kami.</p>
@@ -194,7 +199,7 @@
                 </div>
                 <div class="form-buttons-w text-right">
                 <button type="submit">Submit</button>
-                <input type="hidden" name="survey_url" value="{{ $url }}">
+                <input type="hidden" name="survey_id" value="{{ $survey->id }}">
                 </div> 
             </div>
     </div>  
